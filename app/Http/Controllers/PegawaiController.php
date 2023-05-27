@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PegawaiRequest;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,7 @@ class PegawaiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PegawaiRequest $request)
     {
         DB::table('pegawai')->insert([
             'nama' => $request->nama,
@@ -69,7 +70,7 @@ class PegawaiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(PegawaiRequest $request)
     {
         DB::table('pegawai')->where('id', $request->id)->update([
             'nama' => $request->nama,

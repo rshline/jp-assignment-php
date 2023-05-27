@@ -8,6 +8,21 @@
     <div class="container p-4">
         <a href="{{ route('pegawai.index') }}">&#8592; Kembali</a>
 
+        @if ($errors->any())
+        <div class="my-3" role="alert">
+            <div class="bg-red-500 text-white font-bold rounded-t p-4">
+                Input tidak sesuai!
+                <p>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </p>
+            </div>
+        </div>
+        @endif
+
         <form action="{{ route('pegawai.store') }}" method="post" class="py-6">
             {{ csrf_field() }}
 
